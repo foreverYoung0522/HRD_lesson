@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+
+        <meta charset='UTF-8'>
+
+    </head>
+    <title>속성 정의 주의사항</title>
+
+    <body>
+
+        <ul>
+            <li>
+                value="안녕 'html'":
+                <input type="text" value= "안녕'html'">
+            </li>
+            <li>
+                value=안녕 'html'" :
+                <input type="text" value= 안녕 html>
+            </li>
+            <li>
+                value=안녕 "html"' :
+                <input type="text" value =  '안녕 "html"'>
+
+            </li>
+            <li>
+                onfocus 시 this.value + 3 (안됨 따옴표 없애도 30은 문자열) :
+                <input type="text" value = 30
+                    onfocus="this.value = this.value+3"
+                    >
+            </li>
+            <li>
+                onfocus 시 Number(this.value) + 3 :
+                <input type="text" value = 30
+                    onfocus="this.value = Number(this.value)+3"
+                    >
+            </li>
+        </ul>
+    </body>
+
+</html> 
