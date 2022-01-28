@@ -35,6 +35,30 @@
                     onfocus="this.value = Number(this.value)+3"
                     >
             </li>
+            <li>
+                <!-- id : 글로벌 속성(모든 요소가 동일하게 갖는 속성)으로 문서에서 유일한 이름을 지정 -->
+                <input id = "decreaseNum" type="button" value="감소">
+                <strong id = "num" value = "0">0</strong>
+                <button id = "increaseNum">증가</button>
+            </li>
+            <script> //자바스크립트 주석
+            //html 문서 안에서 스크립트 작성
+            console.log("브라우저에서 검사하기를 한 후 콘솔을 보세요");
+            console.log(increaseNum.innerText)
+            console.log(num.innerText);
+            console.log(Number(num.innerText)+1);
+            increaseNum.onclick=function(){
+                num.innerText = Number(num.innerText)+1;
+                num.value = num.innerText;
+            }
+            decreaseNum.onclick=function(){
+                num.innerText = Number(num.innerText)-1;
+                console.log(num.innerText);
+                num.value = num.innerText;
+            }
+            
+            
+            </script>
         </ul>
     </body>
 
