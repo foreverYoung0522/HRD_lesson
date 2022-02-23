@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 for</title>
+</head>
+<body>
+    <h1>반복문 for의 규칙을 배우고 배열을 출력하자</h1>
+<script>
+//for(초기문; 조건문; 증감문;){ 조건문이 true 일때 실행 }}
+for(let i=0; i<5; i++){
+    console.log(i);
+}
+const arr=["a","b","c","d","e"];
+
+for(let i=0; i<arr.length; i++){
+    console.log(arr[i]);
+}
+
+for(let i=arr.length-1; i>=0; i--){
+    console.log(arr[i]);
+}
+
+const num_arr=[-20,30,4,100,-200];
+let max=-Infinity;
+for(let i=0; i<num_arr.length; i++){
+    if(max>num_arr[i]){
+
+    }else{
+        max=num_arr[i]
+    }
+}
+console.log(max);
+
+
+const str_arr=["a","b",null,"sd",null,"dd"];
+for(let i=0; i<str_arr.length; i++){
+    console.log(str_arr[i]==null);
+    if(str_arr[i]==null){
+        str_arr[i]="";
+    }
+}
+console.log(str_arr);
+</script>
+
+<ul id="nums_list">
+    <li class="nums">88</li>
+    <li class="nums">40</li>
+    <li class="nums">20</li>
+    <li class="nums">423</li>
+    <li class="nums">11</li>
+    <li class="nums">-20</li>
+    <li class="nums">-300</li>
+    <li class="nums">100</li>
+    <li class="nums">4</li>
+    <li class="nums">0</li>
+</ul>
+<ul id="nums_list2">
+    <li class="nums">88</li>
+    <li class="nums">40</li>
+    <li class="nums">20</li>
+    <li class="nums">423</li>
+    <li class="nums">11</li>
+    <li class="nums">-20</li>
+    <li class="nums">-300</li>
+    <li class="nums">100</li>
+    <li class="nums">4</li>
+    <li class="nums">0</li>
+</ul>
+
+<script>
+   
+    console.log(document.getElementsByTagName("li"));
+    console.log(document.getElementsByClassName("nums"));
+    console.log(document.querySelectorAll("#nums_list .nums")); 
+    //css 선택자로 노드개체를 찾음
+    const nums=document.getElementById("nums_list").getElementsByClassName("nums");
+    console.log(nums);
+    let nums_max;
+    for(let i=0; i<nums.length; i++){
+        //console.log(i+":",nums[i].innerText);
+        let num=Number(nums[i].innerText);
+        console.log(i+":",num);
+        if (i===0){
+            nums_max=num;     
+        }else{
+            if(!(nums_max>num)){
+                nums_max=num;
+            }
+        }
+    }
+    console.log("nums_max",nums_max);
+
+    const nums_nodelist=[];
+    //const nums2;
+    //let nums_min=Infinity;
+</script>
+<script>
+<ol id="month_list">
+</ol>
+const month_arr=["Jan","Feb","Mar","Apr","Jun","Jul","Aug","Sep","Oct",
+"Nov","Dec"]
+console.log(document.createElement("li"));
+
+for(let i=0; i<month_arr.length; i++){
+    console.log(month_arr[i]);
+    let new_li=document.createElement("li");
+    let new_txt=document.createTextNode(month_arr[i]);
+    new_li.appendChild(new_txt);
+    console.log(new_li);
+    month_arr[i] = new_li;
+}
+const month_list=document.getElementById("month_list");
+console.log(month_arr);
+for(let i=0; i<month_arr.length; i++){
+    month_list.appendChild(month_arr[i]);
+}
+
+
+</script>
+
+<script>
+const score_arr =[80,88,90,95,40,120,70,88,-10]
+let score_avg=0;
+const grade_arr = [];
+//const grade_arr = ["B","B+","A","A+","F", undefined, "C", "B+", undefined]
+</script>
+
+<h2>문자열을 split(",")으로 배열을 만든 후 합만 출력하세요.</h2>
+<p>40,-20,423,11,99 => [40,-20,423,11,99] => 553</p>
+<ul id="text_list">
+    <li>40,20,423,11</li>
+    <li>4,0,3,2</li>
+    <li>14,13,-3,22</li>
+    <li>334,-32,12,0</li>
+</ul>
+
+</body>
+</html>

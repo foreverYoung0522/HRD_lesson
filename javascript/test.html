@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+    <form name="userLogin" action="/login.jsp" method= "post" id="userLogin">
+        <p><input type="text" name ="id" placeholder="아이디"value=""></p>
+        <p><input type="password" name="pw" placeholder="비밀번호"></p>
+        <p><input type="button" value="로그인" onclick="zzz()"></p>
+    </form>
+
+    <script>
+        function zzz(){
+            //window.alert("5 이상");
+            if(document.forms["userLogin"].elements['id'].value.length > 5){
+                window.alert("5 이상");
+            }
+            else{
+                window.alert("5 이하");
+            }
+        }
+    
+    </script>
+
+
+
+
+
+</body>

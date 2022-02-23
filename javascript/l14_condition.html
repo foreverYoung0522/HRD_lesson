@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문을 작성하자</title>
+</head>
+<body>
+    <h1>비교연산자와 그 결과인 부울 타입을 이용해 조건문을 작성하자</h1>
+<script>
+//if(조건){실행}
+//if() == boolean() 결과와 같다. 
+//조건 결과가 true면 블록을 실행하고 false면 블록을 무시한다.
+
+let input_name="홍길동";
+//입력 받은 이름이 2글자 이상 되어야 실행되는 블록을 만드세요!
+
+console.log(input_name.length);
+
+if (input_name.length>=2){
+    document.write(`<h2>${input_name} 반갑습니다!</h2>`)
+}else{
+    window.alert("2글자 이상 입력하세요")
+}
+
+let input_age="20";
+//20살 이상만 입장 가능 20살 미만 입장 불가(출력)
+
+if(input_age>19){
+    document.write(`<h2>${input_age}살 입장가능</h2>`)
+}else{
+    document.write(`<h2>${input_age}살 입장불가</h2>`)
+}
+//default로 else 문 대신하기
+document.write("<hr>");
+let msg="입장불가";
+
+if(input_age>=20){
+    msg="입장가능";
+}
+document.write(`<h2>${input_age}살 ${msg}</h2>`);
+
+</script>
+
+<p>당신의 나이는: <input type="text" id="user_age" placeholder="나이를 입력하세요"></p>
+<p>당신은 <strong id="age_group"></strong>입니다</p>
+<ul>
+    <li>다시 입력 > 130</li>
+    <li>노인 >=60 </li>
+    <li>중년 >= 40 </li>
+    <li>성인 >= 20</li>
+    <li>미성년 < 20</li>
+    <li>다시 입력 < 1 </li>
+</ul>
+<script>
+user_age.onchange=function(){
+    if(this.value.trim()==""){
+        msg = "공백을 입력하지 마세요";
+    }
+    msgPrint(this.value);
+};
+
+//user_age.onchange=msgPrint;
+function msgPrint(age){
+    const gap = 20;
+    let msg;
+    if(age.trim()==""){
+        msg="공백을 입력하지 마세요";
+    }
+    age = Number(age)
+    
+
+    if(Number.isNaN(age))
+        window.alert("숫자를 입력하세요");
+    else if(age>130 || age<1)
+        window.alert("다시 입력하세요");
+    else if(age>=gap*3)
+        //age_group.innerText=(` ${age}살 노인 `);
+        msg = `${age}살 노인`;
+    else if(age>=gap*2)
+        //age_group.innerText=(` ${age}살 중년 `);
+        msg = `${age}살 중년`;
+    else if(age>=gap)
+        //age_group.innerText=(` ${age}살 성인`);
+        msg = `${age}살 성인`;
+    else if(age<gap)
+        //age_group.innerText=(` ${age}살 미성년`);
+        msg = `${age}살 미성년`;
+   
+    age_group.innerText=(msg);
+    
+    
+}
+
+
+
+</script>
+
+</body>
+</html>

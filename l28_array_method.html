@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset ="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 타입의 필드를 알아보자</title>
+</head>
+<body>
+    <h1>Array의 유용한 필드를 사용해보자</h1>
+    <script>
+        const obj = {a:1,b:4}; //object 리터럴 선언법
+        obj2 = new Object(); // 정상적인 방법
+        obj2["a"]=1;
+        obj2.b=4;
+        console.log(obj2);
+        console.log(obj2.c); //key 3이 없어서 undifined
+        console.log(obj2.length); //undifined
+        const array =[12,1,-4,5,100];// Array 리터럴한 방식의 선언
+        
+        array2=new Array(1,3,6);
+        array2[0]=100;
+        array2[1]=20;
+        array2[9]=-1;
+        console.log(array2);
+        console.log(array2[3]); //index 3은 있는데 값이 없는 것.
+        console.log(array2.length);
+
+        const score_arr=[70,66,99,84,100,77];
+        let last_el = score_arr.pop(); // 끝 77 사라짐 끝 값을 반환
+        console.log(last_el);
+        console.log(score_arr);
+
+        console.log("///////////////////////////////////");
+        
+        
+        console.log(score_arr.push(last_el)); //return push 된 index
+        console.log(score_arr.unshift("추가된"));
+        console.log(score_arr);
+        console.log(score_arr.shift());
+        console.log(score_arr);
+
+        console.log(score_arr.splice(2,0,"a","b","c","d")); //첫번째는 위치, 두번째는 잘라낼 길이, 세 번째는 추가될 아이템
+        console.log(score_arr);
+        
+        console.log(score_arr.splice(2,4));
+        console.log(score_arr);
+
+        console.log(score_arr.splice(2,1,95,87));
+        console.log(score_arr);
+
+        //새로운 배열을 만든다
+
+        console.log(score_arr.slice(4));
+        console.log(score_arr.slice(3,5));
+
+        const printInfo=function(item,i,arr){
+            console.log(i,item,arr);
+        }
+
+        score_arr.forEach(printInfo);
+
+        let total_score=0;
+        let avg_score=0;
+
+        function calcuTotal(item,i,arr){
+            total_score+=item;
+        }
+        function calcAvg(item,i,arr){
+
+        }
+        score_arr.forEach(calcuTotal)
+        calcAvg;
+        console.log(avg_score);
+        console.log(total_score);
+
+        const new_score_arr=score_arr.map((score,i,arr)=>{
+            return 100-score;
+        })
+        console.log(new_score_arr);
+
+        const error_score_arr=[70,66,0,null,undefined,"","16",95,87,84,100,77];
+        
+
+        const a_score_arr=error_score_arr.filter((score)=>{
+            //return Boolean(score); defualt;
+            return !(score===null || score ===undefined || (typeof score) === "string");
+        })
+        console.log(a_score_arr);
+      
+
+
+
+        //reduce()로 total 만들기
+        const iV = 0;
+        const re_total = a_score_arr.reduce((pV,cV)=>pV+cV,iV);
+        console.log(re_total);
+
+        //map으로 100~90 => a, 80=> b, 70-> c
+        console.log(a_score_arr.map((item,i,arr)=>{
+            item = Number(item);
+            if(item>=90) item = 'a'
+            else if(item>=80) item = 'b'
+            else item = 'c';
+            return item;
+        }));
+        
+
+    </script>
+
+</body>
+</html>
